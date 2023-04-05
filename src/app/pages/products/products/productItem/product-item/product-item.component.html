@@ -1,0 +1,33 @@
+<mat-card class="product-card m-4">
+    <mat-card-header>
+      <div mat-card-avatar class="card-image"></div>
+      <mat-card-title>
+        <mat-form-field >
+          <input matInput value="{{productName}}"/>
+        </mat-form-field>
+      </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="../../../../../../assets/images/placeHolder.jpg" alt="Photo of a Placeholder">
+    <mat-card-content>
+        <form class="flex flex-col">
+          <mat-form-field >
+              <mat-label>Price</mat-label>
+              <input matInput value="{{price}}" [(ngModel)]="itemPrice" [ngModelOptions]="{standalone: true}"/>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Tax</mat-label>
+            <!-- <mat-select [(value)]="taxOption"> -->
+            <mat-select [(value)]="taxOption" (valueChange)="onChange()">
+              <div *ngFor="let tax of taxList">
+                <mat-option value="{{tax.tax}}">{{tax.itemName}}: {{tax.tax}}%</mat-option>
+              </div>
+            </mat-select>
+          </mat-form-field>
+        </form>
+        <!-- <p class="mb-2">Total: {{total}}</p> -->
+        <p class="mb-2">Total: {{total}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-button>Edit Tax</button> -->
+    </mat-card-actions>
+</mat-card>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TaxItemComponent } from './taxItem/tax-item/tax-item.component';
 import { TaxService } from 'src/app/common/TaxService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-taxes',
@@ -13,7 +14,7 @@ export class TaxesComponent {
   taxList: any = [];
   sessionId = Math.random();
 
-  constructor(private taxService: TaxService) {
+  constructor(private taxService: TaxService, private router: Router) {
   }
 
   ngOnInit(){
@@ -33,12 +34,15 @@ export class TaxesComponent {
 
   deleteItem(): void{
     console.log("Deleting item...");
-    // console.log(this.selectedItems);
     // this.data.taxes = this.data.taxes.filter((item) => !this.selectedItems.includes(item));
   }
 
   onNgModelChange(event : any){
     console.log(event);
     // this.selectedItems = event;
+  }
+
+  navigateProducts(): void {
+    this.router.navigate(['/products']);
   }
 }

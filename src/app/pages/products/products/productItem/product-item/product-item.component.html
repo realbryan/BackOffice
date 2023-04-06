@@ -10,9 +10,9 @@
     <img mat-card-image src="../../../../../../assets/images/placeHolder.jpg" alt="Photo of a Placeholder">
     <mat-card-content>
         <form class="flex flex-col">
-          <mat-form-field >
+          <mat-form-field>
               <mat-label>Price</mat-label>
-              <input matInput value="{{price}}" [(ngModel)]="itemPrice" [ngModelOptions]="{standalone: true}"/>
+              <input matInput type="number" value="{{price}}" [(ngModel)]="itemPrice" [ngModelOptions]="{standalone: true}"/>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Tax</mat-label>

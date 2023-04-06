@@ -20,6 +20,10 @@ import { ProductItemComponent } from './pages/products/products/productItem/prod
 import { MatSelectModule } from '@angular/material/select'; 
 import { ProductService } from './common/ProductService';
 import { TaxService } from './common/TaxService';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav'; 
+import { MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { TaxService } from './common/TaxService';
     MatInputModule,
     MatIconModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatMenuModule
   ],
   providers: [ProductService, TaxService],
   bootstrap: [AppComponent]

@@ -7,14 +7,22 @@
     <title>Product Page</title>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.2/dist/tailwind.min.css" />
   </head>
-  <header class="px-4 py-2 bg-blue-400">
+  <header class="px-4 py-2 bg-blue-400 flex">
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigateTaxes()">Taxes</button>
+      </mat-menu>
+    </div>
     <h1 class="text-9xl font-normal leading-normal mt-0 mb-2 text-white">
       Products
     </h1>
   </header>
   <body>
     <div class="flex flex-col">
-      <div class="buttons-container flex justify-end space-x-3">
+      <div class="buttons-container flex justify-end space-x-3 p-4">
         <button mat-fab color="primary" (click)="addItem()" aria-label="Adding an item to the list">
           <mat-icon>add</mat-icon>
         </button>

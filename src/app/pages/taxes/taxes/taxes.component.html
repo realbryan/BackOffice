@@ -7,18 +7,26 @@
     <title>List with Textbox on Right Side</title>
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.2/dist/tailwind.min.css" />
   </head>
-  <header class="px-4 py-2 bg-blue-400">
+  <header class="px-4 py-2 bg-blue-400 flex">
+    <div>
+      <button mat-button [matMenuTriggerFor]="menu" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigateProducts()">Products</button>
+      </mat-menu>
+    </div>
     <h1 class="text-9xl font-normal leading-normal mt-0 mb-2 text-white">
       Taxes
     </h1>
   </header>
   <body>
     <div class="container mx-auto py-8 flex flex-col">
-      <div class="buttons-container flex justify-end space-x-3">
-        <button mat-icon-button (click)="addItem()" mat-fab color="primary" aria-label="Adding an item to the list">
+      <div>
+        <button mat-icon-button (click)="addItem()" color="primary" aria-label="Adding an item to the list">
           <mat-icon>add</mat-icon>
         </button>
-        <button (click)="deleteItem()" mat-fab matTooltip="Primary" color="primary" aria-label="Deleting an item on the list">
+        <button mat-icon-button (click)="deleteItem()" matTooltip="Primary" color="primary" aria-label="Deleting an item on the list">
           <mat-icon>delete_forever</mat-icon>
         </button>
       </div>

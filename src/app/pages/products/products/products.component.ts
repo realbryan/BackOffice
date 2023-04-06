@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from 'src/app/common/ProductService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -12,7 +13,7 @@ export class ProductsComponent {
    productList: any = [];
    sessionId = Math.random();
    
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
   }
 
   ngOnInit() {
@@ -21,15 +22,18 @@ export class ProductsComponent {
     });
   }
 
-  addItem(): void{
+  addItem(): void {
     console.log("Adding item...")
     //this.productList.push(new ProductItemComponent(this.data));
   }
 
-  deleteItem(): void{
+  deleteItem(): void {
     console.log("Deleting item...")
     // console.log(this.selectedItems);
     // this.taxes = this.taxes.filter((item) => !this.selectedItems.includes(item));
   }
 
+  navigateTaxes(): void {
+    this.router.navigate(['/taxes']);
+  }
 }
